@@ -60,6 +60,8 @@ A typical day inside this AI:
 
 **Anytime mid-day:** *"Add Anders to amber for the week — he seemed off after Wyrm today."* AI logs it. Next time you ask about Anders, that context is there.
 
+**Every single draft above** — the morning brief, the Instagram posts, the newsletter, the check-in for Anders — passes through anti-AI-writing discipline before it lands in front of you. Twenty-four hard pattern rules, ~250 banned words, the POP voice framework (Personal / Observational / Playful / Vignette) bolted on. The difference between *"sounds like a corporate chain gym"* and *"sounds like our club"* is automatic from day one.
+
 You never open a terminal. You talk to your AI like you'd talk to a chief of staff.
 
 ---

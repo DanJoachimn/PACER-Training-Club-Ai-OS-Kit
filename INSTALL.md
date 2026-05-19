@@ -155,6 +155,56 @@ echo "connectors-deferred: $LIST_OF_SKIPPED" >> ~/Documents/[AI_NAME]/.first-run
 
 ---
 
+## Stage 0c — Voice discipline (~30 sec, BEFORE the greeting)
+
+This stage doesn't require the operator to do anything — it's a 20-second framing the AI delivers in plain language so they understand what they're getting from minute one. The skill itself (`anti-ai-writing`) auto-installs via Personal's setup.sh CORE_SKILLS list; this stage tells the operator it's there and why it matters.
+
+This completes the agent activation triad:
+- **Stage 0a — Hands** (computer use + Chrome ext)
+- **Stage 0b — Reach** (Gmail / Calendar / Drive / Notes connectors)
+- **Stage 0c — Voice** (anti-ai-writing discipline)
+
+Without any one of the three, the operator gets a smart chatbot. With all three, they get an agent that acts, reaches, and writes like them — and like their club.
+
+### Tell the operator this — once, plainly
+
+> "Last thing before we start the install proper. There's a skill bundled in this kit called **anti-AI-writing discipline**. It fires on every single draft I produce for you — member check-in emails, social captions, race recaps, weekly retention reviews, content drafts, replies to inquiries. It removes about 250 patterns that signal AI-generated text (em dashes everywhere, *'It's not X, it's Y'* contrast framing, *'Moreover'* / *'Furthermore'*, *'serves as'* instead of *'is'*, the rule of three, the *'despite challenges'* skeleton, etc.) — and then adds personality back in via a framework called POP (Personal, Observational, Playful, Vignette).
+>
+> Most AI assistants give you generated-sounding output and expect you to clean it up. This kit flips that. The cleanup runs automatically, on every draft, from day one. Especially important for member-facing copy where the difference between *'sounds like a corporate gym'* and *'sounds like our club'* is the difference between a renewal and a churn.
+>
+> As you use me, the skill specializes to your club. You tell me *'never use the word [X]'* or *'we never call members clients'* and it gets added to my permanent voice rules. Over a few weeks I get sharper at sounding specifically like your club, not generic-fitness-brand.
+>
+> The reason I'm telling you this now, before we install anything: in about 35 minutes I'll draft something for you (the aha-moment voice note in Stage 8). That draft will already be running through this discipline. You'll hear the difference in the voice note — it'll sound like a real person, not a chatbot. That's not a one-time thing for the demo. That's the default for everything I write for you, forever.
+>
+> Sound good? Cool. Moving on."
+
+No action required from the operator. The AI just states this and moves on to Stage 0 greeting.
+
+### What the skill does on the AI side (reference for the install playbook)
+
+The bundled `anti-ai-writing` skill auto-activates on every drafting task. It reads:
+- The club's Brand voice guide (populated during Stage 7 3-Q opener + extended in Part 2 Section C+)
+- The club's Do-not-use list
+- The club's Ideal Member Profile (so member-facing drafts speak to the actual archetypes)
+- Its own `learnings.md` (accumulates operator-specific rules over time)
+
+Then runs every output through:
+1. **24 hard rules** (no em dashes, no rule of three, no contrast framing, no copula avoidance, etc.)
+2. **Banned-word substitution** (~250 entries)
+3. **Pattern check** (negative parallelism, "despite challenges" formula, false ranges, synonym cycling)
+4. **POP framework** for adding personality back
+
+Especially for Training Club operators: member-facing copy passes through here too. The `member-checkin-draft` skill, `weekly-content-batch` skill, and any reply-to-inquiry drafts all run through anti-ai-writing before being shown to the operator.
+
+### Hard rules for this stage
+
+- **Don't skip mentioning anti-ai-writing.** It's not optional polish — it's the kit's promise to the operator that their member-facing copy won't sound like generic fitness-brand AI slop.
+- **Don't oversell.** Don't list all 24 rules. One paragraph, one specific example, move on.
+- **Don't gate.** Skill installs automatically; operator doesn't toggle it on/off.
+- **The aha-moment voice note in Stage 8 is the first proof.** When the operator hears Em's voice on their phone saying something specific about their club, warm, human — that draft was already cleaned by this skill. Don't break the suspense by re-explaining mid-install.
+
+---
+
 ## Stage 0 — Greeting + tone-setting (~1 min)
 
 Open with Training Club context. Set expectations.
