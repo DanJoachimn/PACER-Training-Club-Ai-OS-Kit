@@ -138,7 +138,35 @@ touch ~/Documents/[AI_NAME]/.granola-configured
 
 ---
 
+## Stage 4.5 — Obsidian Web Clipper (browser → vault, ~3 min)
+
+Vault feeder #2 for the Training Club operator. Granola pumps coaching calls + member onboarding meetings into the vault automatically. The Obsidian Web Clipper pumps the open web — competitor blogs, race recap articles, programming research, retention industry pieces, anything readable in a browser — into the vault as clean markdown, in one click.
+
+Combined with the AI's vault-awareness, *"summarize what I've clipped this week"*, *"find the article I clipped about hybrid programming"*, *"pull the strongest retention arguments from my last 3 clippings"* all just work — no copy-pasting.
+
+> "Want to add the Obsidian Web Clipper? It's the cleanest way to feed articles, transcripts, and pages from the open web straight into your vault. ~3 min to install. Especially useful for Training Club operators tracking competitor content, race coverage, and programming research."
+
+If yes:
+
+1. Open Chrome (or Edge / Firefox / Safari) → install the **Obsidian Web Clipper** extension from the browser's store. Direct link: https://obsidian.md/clipper
+2. Click the extension icon → point at the vault at `~/Documents/[AI_NAME]/vault/`.
+3. Recommend `vault/Clippings/` as the destination folder (Web Clipper creates it if missing). Matches the Hab schema convention for raw source material.
+4. Pick the default template — bundled "Default" handles most cases. YouTube template is useful for race recap videos.
+5. Test: open any article in the browser, click the Web Clipper icon, save. Confirm a new markdown file appears in `~/Documents/[AI_NAME]/vault/Clippings/`.
+
+Mark complete:
+
+```bash
+touch ~/Documents/[AI_NAME]/.obsidian-clipper-configured
+```
+
+After install: the AI reads everything in `vault/Clippings/` as context. Operator clips race recaps + competitor content + retention research, AI absorbs it, queries spanning "what's in my head + what I've been reading + what my clients are doing" become trivial.
+
+---
+
 ## Stage 5 — Optional skills menu (varies)
+
+### Optional skills
 
 Training Club-relevant optional skills the user can install now or anytime later:
 
@@ -151,6 +179,26 @@ Training Club-relevant optional skills the user can install now or anytime later
 > - **Book mirror** — turns books you've read (via Readwise highlights) into chapter-by-chapter synthesis docs. Programming, coaching, retention books (~5 min)."
 
 Install only what user picks.
+
+### Optional MCP server additions
+
+MCPs are different from skills — they're external servers that expose tools to the AI. One MCP server, one capability. Installed via Claude Code Settings → MCP servers → Add new → paste the server's command from its README.
+
+> "Worth considering at this stage:
+>
+> - **youtube-transcript MCP** — fetches transcripts from any YouTube video by URL. Lets the AI summarize a race recap video, pull quotes from a HYROX athlete interview, transcribe a programming methodology video, or fact-check claims — without copy-paste. Pairs nicely with the Obsidian Web Clipper (clip the YouTube page, fetch the transcript, ask for a synthesis). ~3 min to install. Search the Anthropic MCP registry or upstream for the current canonical package."
+
+If the operator adds youtube-transcript MCP, verify it works with a Training Club-relevant test:
+
+```
+Test query: "Pull the transcript of this race recap: https://www.youtube.com/watch?v=<id>"
+```
+
+The AI should return the full transcript text. If it scrapes successfully, mark complete:
+
+```bash
+touch ~/Documents/[AI_NAME]/.youtube-transcript-mcp-configured
+```
 
 ---
 
