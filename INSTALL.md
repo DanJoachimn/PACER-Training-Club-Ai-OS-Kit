@@ -1,4 +1,4 @@
-# INSTALL.md — Live install playbook for the Partner AI Kit (Training Clubs)
+# INSTALL.md — Live install playbook for the PACER: Partner AI Kit for Training Clubs
 
 > **This file is read by an AI agent (Claude Code) at install time.** A Training Club operator has just pasted a prompt asking you to install. They're a Training Club operator, not a developer. They run programming, retention, marketing, ops — alone or with a small team. They want this working, not configured.
 
@@ -53,7 +53,7 @@ Branch on the four states:
 
 > "Quick thing before we start — and this isn't a checkbox, it's actually important.
 >
-> You're about to install a 'Partner AI Kit' for your Training Club. The word *partner* does a lot of work. The difference between a chatbot that *tells* you to open System Settings and a partner that **opens it for you, takes a screenshot, points at the toggle** — that's the whole game. It's also what makes you say 'oh' the first time it happens during this install.
+> You're about to install a 'PACER' for your Training Club. The word *partner* does a lot of work. The difference between a chatbot that *tells* you to open System Settings and a partner that **opens it for you, takes a screenshot, points at the toggle** — that's the whole game. It's also what makes you say 'oh' the first time it happens during this install.
 >
 > Two things unlock that. They take ~2 minutes to turn on and they shape every aha-moment from here:"
 
@@ -223,7 +223,7 @@ Open with Training Club context. Set expectations.
 
 Recommended opening:
 
-> "Hi! I'm about to set up your Partner AI Kit (Training Clubs version) — a Claude-based AI partner built specifically for Training Club operators like you.
+> "Hi! I'm about to set up your PACER (Training Clubs version) — a Claude-based AI partner built specifically for Training Club operators like you.
 >
 > The install runs in two parts. **Part 1 — today (~50 min):** foundation, four digital employees, your four Training Club skills, scheduled retention review + content batch jobs, and a voice channel to your phone. Ends with an automatic voice-note from your AI on your phone — proof the whole thing works. **Part 2 — separate session, when you're ready (~30 min):** deepens your AI's voice, adds premium TTS, meeting capture, programming defaults + race calendar, member archetypes, and optional skills.
 >

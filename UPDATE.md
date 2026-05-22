@@ -1,4 +1,4 @@
-# UPDATE.md — Live update playbook for the Partner AI Kit (Training Clubs)
+# UPDATE.md — Live update playbook for the PACER: Partner AI Kit for Training Clubs
 
 > Same shape as the Personal kit's UPDATE.md, but updates BOTH the Personal foundation AND the Training Club overlay. Read by the `/update` skill when an Training Club user runs `/update`.
 

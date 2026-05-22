@@ -1,6 +1,6 @@
-# Partner AI Kit (Training Clubs)
+# PACER: Partner AI Kit for Training Clubs
 
-> The Training Club-flavored version of the Partner AI Kit. An AI partner built for Training Club operators — knows your members, your programming, your race calendar, your voice. ~30 minutes from install to your first useful conversation.
+> PACER (Partner AI Kit for Training Clubs) — the Training Club-flavored sibling of WATNEY. An AI partner built for Training Club operators — knows your members, your programming, your race calendar, your voice. ~30 minutes from install to your first useful conversation.
 
 ---
 
@@ -34,7 +34,7 @@ Three things you should know about safety:
 
 ## What this is
 
-The Personal Partner AI Kit + an Training Club overlay. You get everything in the [Personal kit](https://github.com/DanJoachimn/Partner-Ai-Kit-Personal) — voice, memory, scheduled jobs, second brain — plus:
+WATNEY (the Personal AI Kit) + a Training Club overlay. You get everything in the [Personal kit](https://github.com/DanJoachimn/Partner-Ai-Kit-Personal) — voice, memory, scheduled jobs, second brain — plus:
 
 - **The 4 standard subagents** (same as the Personal kit): Content, Research, Developer, Assistant — used here for Training Club operations
 - **Day-1 skills tuned for Training Club operators:** weekly retention review, weekly content batch, race-anchored block builder, member check-in drafter
@@ -106,7 +106,7 @@ If you genuinely can't enable them (corporate-locked Mac, no Chrome), the instal
 ### The install prompt
 
 ```
-You're about to install the Partner AI Kit (Training Clubs) for me.
+You're about to install PACER (Partner AI Kit for Training Clubs) for me.
 I'm not a developer. I run a Training Club and want an AI partner
 built for my operation.
 
