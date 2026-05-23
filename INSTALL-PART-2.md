@@ -164,6 +164,65 @@ After install: the AI reads everything in `vault/Clippings/` as context. Operato
 
 ---
 
+## Stage 4.7 — Vault backup (~5 min, strongly recommended)
+
+The vault now holds member files, programming blocks, race calendar, coach notes, retention dashboards, content drafts, meeting transcripts, clipped articles. For a Training Club operator, **this IS the business in markdown form.** Without backup, a Mac failure means starting over on months of member context and programming history.
+
+Three options, easiest first. Pick at least one. Pick two if member data matters to you.
+
+### Easiest: Time Machine
+
+Plug in an external drive. macOS Time Machine backs up hourly, automatically, covers your whole Mac. ~3 min setup.
+
+- ✅ Mac-native, fully automatic
+- ✅ Covers everything (vault + skills + business docs + photos)
+- ✅ Version history — scroll back through any state
+- ⚠️ External drive required (~$60 for a small SSD)
+
+Walk-through: System Settings → General → Time Machine → Add Backup Disk.
+
+### Strongest (recommended): Private GitHub repo
+
+Off-platform backup. Full version history. Restore from any commit.
+
+- ✅ Disaster recovery + complete version history
+- ✅ Free (private repos unlimited)
+- ✅ Works alongside Time Machine — two layers, not exclusive
+- ✅ Important for Training Club operators because member data deserves the highest-resilience backup story
+- ⚠️ Requires GitHub account + ~5 min setup
+
+Walk-through:
+1. If operator has no GitHub account, open https://github.com/signup via Chrome extension, walk them through
+2. Create private repo: `gh repo create [ai-name]-vault --private --description "Backup of [club name]'s AI vault"`
+3. In vault folder, init git + add `.gitignore` (exclude `_recovery/`, `.env`, anything secret — and especially anything member-PII-related the operator wants tightly held) + commit + push
+4. Schedule nightly via launchd: `git add . && git commit -m "vault backup $(date)" && git push` from `~/[AI_NAME]/.kit/scripts/git-vault-backup.sh`. Script lives at unprotected path (`~/[AI_NAME]/`) so launchd can run it.
+
+**Note for Training Club operators specifically:** GitHub stores member data on their servers. Check your local regulations (GDPR for EU operators) before pushing member files. If concerned, exclude `Members/` from the git backup and rely on Time Machine for that folder alone.
+
+Mark complete:
+
+```bash
+touch ~/[AI_NAME]/.github-vault-backup-configured
+```
+
+### Alternative: Obsidian Sync ($5–10/mo)
+
+Vault-only sync, end-to-end encrypted, version history. Best if you want vault access on your phone via Obsidian Mobile (useful between classes).
+
+- ✅ Multi-device + encrypted (not even Obsidian can read your notes)
+- ⚠️ Paid subscription
+- ⚠️ Vault-only — skills/scripts/config not covered
+
+### Don't: iCloud Drive
+
+We deliberately don't recommend iCloud Drive for the vault. iCloud auto-sync requires moving files into `~/Documents/`, but macOS privacy controls (TCC) block background programs from reading there — which includes the Telegram poller, nightly dreaming, and the weekly retention review launchd jobs. Picking this option breaks the Sunday-19:00 retention review and Sunday-20:00 content batch within 24 hours.
+
+If multi-device access is the goal, **Obsidian Sync** is the right answer (same benefit, doesn't fight macOS TCC).
+
+(Architectural details: see `~/Desktop/Claude's Office/julie-install-friction-log.md` from the kit author. Install #1 discovered this the hard way.)
+
+---
+
 ## Stage 5 — Optional skills menu (varies)
 
 ### Optional skills
