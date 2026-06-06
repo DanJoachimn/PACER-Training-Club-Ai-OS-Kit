@@ -32,14 +32,106 @@ If done → continue:
 
 > "Good to see you back. Part 2 is where I learn your club deeper. Here's what we'll do (~30 min, ~30 messages, fits comfortably in one Pro session):
 >
-> 1. **5-question voice interview** — sharper voice profile than Part 1's lightweight one (~10 min)
-> 2. **Training Club deep kick-off (Section C+)** — programming defaults, race calendar, member archetypes, your scaling philosophy (~10 min)
-> 3. **ElevenLabs upgrade** — premium voices if you want them (~5 min, optional)
-> 4. **Granola meeting capture** — auto-record + transcribe member calls + coach syncs (~5 min, optional)
-> 5. **Optional skills** — content pipeline, document transformations, others (~varies)
-> 6. **Siri & Apple Watch** — last because it's least essential (~10 min, optional)
+> 1. **Knowledge Work Plugins backbone for HTC operations** — install Anthropic-maintained foundation plugins (~5 min)
+> 2. **5-question voice interview** — sharper voice profile than Part 1's lightweight one (~10 min)
+> 3. **Training Club deep kick-off (Section C+)** — programming defaults, race calendar, member archetypes, your scaling philosophy (~10 min)
+> 4. **ElevenLabs upgrade** — premium voices if you want them (~5 min, optional)
+> 5. **Granola meeting capture** — auto-record + transcribe member calls + coach syncs (~5 min, optional)
+> 6. **Optional skills** — content pipeline, document transformations, others (~varies)
+> 7. **Siri & Apple Watch** — last because it's least essential (~10 min, optional)
 >
-> Ready to start with the voice interview, or want to pick a different stage to go to first?"
+> Ready to start with the plugin backbone, or want to pick a different stage to go to first?"
+
+---
+
+## Stage 0.5 — Knowledge Work Plugins backbone for HTC operations (~5 min)
+
+Before the HTC-specific kick-off, install seven Anthropic-maintained plugins that cover the universal small-business operations PACER layers HTC context on top of.
+
+Tell the owner what's about to land:
+
+> "Seven foundation plugins, ~5 min. They cover universal small-business workflows that PACER then layers HTC context on top of:
+>
+> - **sales** — lead intake, call-prep, pipeline. Backbones HTC's Speed-to-Lead.
+> - **customer-support** — ticket triage, draft responses, KB. Member support.
+> - **marketing** — content drafting, campaigns, brand voice. Social + race promo.
+> - **finance** — reconciliation, dunning, month-end close.
+> - **productivity** — tasks, calendar. Daily ops.
+> - **enterprise-search** — find anything across your gym tools.
+> - **brand-voice** (Tribe AI, partner-built) — extracts your gym's voice. Powers PACER's brand-voice phase.
+>
+> All seven are public, maintained by Anthropic. They'll update whenever you run `/update`.
+>
+> Install all seven / customize / skip?"
+
+### If owner says "install all"
+
+```bash
+claude plugin marketplace add anthropics/knowledge-work-plugins
+claude plugin install sales@knowledge-work-plugins
+claude plugin install customer-support@knowledge-work-plugins
+claude plugin install marketing@knowledge-work-plugins
+claude plugin install finance@knowledge-work-plugins
+claude plugin install productivity@knowledge-work-plugins
+claude plugin install enterprise-search@knowledge-work-plugins
+claude plugin install brand-voice@knowledge-work-plugins
+```
+
+### If owner customizes
+
+Show the full picture and ask which to install:
+
+> "OK — here's the full default set, plus optional add-ons. Tell me which to add.
+>
+> **Default set (HTC operations backbone):**
+> - sales (lead intake, call-prep)
+> - customer-support (member support, KB)
+> - marketing (content, campaigns, brand voice)
+> - finance (dunning, month-end)
+> - productivity (tasks, calendar)
+> - enterprise-search (cross-tool search)
+> - brand-voice (voice extraction)
+>
+> **Optional add-ons (PACER-relevant):**
+> - legal (coach contracts, GDPR, member agreements)
+> - data (Wodify exports + SQL/dashboards)
+> - cowork-plugin-management (power-user — build custom plugins for your gym)
+>
+> Tell me 'install' followed by the names. Example: 'install sales, customer-support, and marketing.'"
+
+Install whichever the owner picks via:
+
+```bash
+claude plugin marketplace add anthropics/knowledge-work-plugins   # one-time, skip if already done
+claude plugin install [plugin-name]@knowledge-work-plugins         # per plugin
+```
+
+### If owner says skip
+
+```bash
+touch ~/Documents/[AI_NAME]/.knowledge-work-plugins-deferred
+```
+
+> "Skipped. PACER's HTC wrappers will work with reduced fidelity — they'll write from scratch each time instead of delegating to a battle-tested plugin skill. You can install anytime by saying 'install the HTC plugins' or following `KNOWLEDGE-WORK-PLUGINS.md`."
+
+⚠️ **Note for HTC operators:** Skipping this stage means the HTC-specific wrappers (pacer-lead-triage, pacer-member-support, pacer-content, pacer-dunning) lose their backbone. Strongly recommend installing at minimum: sales, customer-support, marketing, finance.
+
+### Mark complete
+
+After install (or skip):
+
+```bash
+touch ~/Documents/[AI_NAME]/.knowledge-work-plugins-stage-complete
+echo "$(date -Iseconds) — Stage 0.5 complete" >> ~/Documents/[AI_NAME]/logs/install.log
+```
+
+### Why this stage is here and not later
+
+PACER's HTC-specific skills (in `training-club-overlay/skills/`) WRAP these upstream plugins — they pre-load gym context and then delegate to the underlying skill. Installing the backbone first means later stages have something to wrap.
+
+### Reference
+
+Full plugin list, optional add-ons, update flow, wrapper architecture, and the "wrap, don't fork" rationale: see `KNOWLEDGE-WORK-PLUGINS.md` at the repo root.
 
 ---
 

@@ -173,6 +173,22 @@ More skills get built **as you notice patterns in your work** — the kit's proa
 
 ---
 
+## Standing on shoulders — Anthropic's knowledge-work-plugins
+
+PACER installs and references **[anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)** — a public Anthropic-maintained plugin marketplace covering universal small-business operations.
+
+PACER:
+- Installs a curated set during Part 2 of kick-off: `sales`, `customer-support`, `marketing`, `finance`, `productivity`, `enterprise-search`, and `brand-voice` (the HTC operations backbone)
+- Layers HTC-specific wrappers on top — gym brand voice, member CRM, HYROX qualifying questions, race calendar, coach roster — that pre-load gym context and delegate to the underlying plugin skill
+- Pulls upstream updates whenever you run `/update`
+- Stays out of the way — PACER's own skills wrap, never replace, the upstream ones
+
+The full default-install list, optional add-ons (`legal`, `data`, `cowork-plugin-management`), update behavior, wrapper architecture, and "wrap, don't fork" rationale are documented in [KNOWLEDGE-WORK-PLUGINS.md](./KNOWLEDGE-WORK-PLUGINS.md).
+
+**Why "wrap, don't fork":** Anthropic maintains the heavy lifting; PACER adds the HTC sauce on top. When Anthropic ships better plugins, every PACER install gets them for free.
+
+---
+
 ## The vault scaffold (Training Club-flavored)
 
 On install, your vault gets these Training Club-specific folders:

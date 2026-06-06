@@ -52,6 +52,8 @@ cat "$HOME/Documents/[AI_NAME]/.kit/UPDATE.md"
 
 Run that playbook. If it fails, abort — don't proceed to Training Club overlay until Personal is on solid ground.
 
+**Note:** The Personal kit's update flow now also refreshes the upstream `anthropics/knowledge-work-plugins` marketplace (Step 3.5 there). Any plugin updates or new plugins from that marketplace will surface in the Personal flow's Step 9 summary. For HTC operators, the key plugins to watch in that summary are: `sales`, `customer-support`, `marketing`, `finance`, `productivity`, `enterprise-search`, `brand-voice` (the PACER default-install set). Optional add-ons to watch: `legal`, `data`. Carry those through to the combined summary in Step 8 of this playbook.
+
 ### Step 4 — Categorize Training Club overlay changes
 
 After Personal kit update completes, fetch Training Club overlay diff:
