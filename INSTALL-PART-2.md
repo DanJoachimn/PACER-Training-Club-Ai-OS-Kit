@@ -315,6 +315,49 @@ If multi-device access is the goal, **Obsidian Sync** is the right answer (same 
 
 ---
 
+## Stage 4.8 — Deepen the memory layer (~10 min, strongly recommended)
+
+This is where [AI_NAME]'s memory goes from "good" to "compounding hard" — and for a Training Club operator, it's where the AI starts genuinely knowing your members. The core memory loop (daily-memory → nightly dreaming → long-term + weekly curator) shipped in Part 1. This stage adds the two pieces that make recall and member-knowledge powerful.
+
+### Part A — Semantic search (find by meaning, not just words)
+
+Search "retention" but the note says "members at risk" → keyword search finds nothing. Semantic search understands they mean the same thing.
+
+> "Want me to add semantic search? Right now I find notes by exact words. With this, I find them by MEANING — search 'retention' and I'll also pull up the notes where you wrote 'members at risk' or 'who might cancel', because I understand those are the same idea. It piggybacks on a free Obsidian plugin and stays 100% on your Mac. ~5 min."
+
+Follow the same setup as the Personal kit's Stage 3.8 Part A (Smart Connections plugin → confirm local → build embeddings → Python venv → install the `vault-semantic-search` skill → build `scripts/search.py` → gitignore `.smart-env/` → test). The skill template is at `~/Documents/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /skill-templates/vault-semantic-search/`.
+
+Mark complete:
+
+```bash
+touch ~/Documents/[AI_NAME]/.semantic-search-configured
+```
+
+### Part B — The Brain (the filing cabinet that builds itself)
+
+The richest memory upgrade, and the one that matters most for Training Club ops. Part 1 ships simple flat `Members/` and `Coaches/` folders. The Brain (`_Brain/`) adds a compiled, *cited*, *timelined* knowledge layer on top — one living document per member, coach, supplier, or concept, where every fact has a receipt and the history is never erased.
+
+> "Want me to add the Brain? Right now I keep light notes on your members and coaches. The Brain upgrades that into a proper memory: one living file per person in your club's world. Every fact I write has a receipt — where I learned it (which class, which conversation, which check-in) — so I can never make things up. Each file has a 'now' section I keep current, plus a timeline of how the picture changed. Six months from now you ask 'what's the story with this member?' and get a complete, sourced answer — every check-in, every conversation, every time they went amber and came back. ~5 min to set up; it fills itself as we work."
+
+Install the `_Brain/` scaffold (same as Personal kit Stage 3.8 Part B):
+
+```bash
+OVERLAY="$HOME/Documents/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /vault-scaffold/brain-layer"
+cp -R "$OVERLAY/_Brain" "$HOME/Documents/[AI_NAME]/vault/_Brain"
+```
+
+**Training Club-specific value:** the `_Brain/people/` drawer becomes the deep member + coach memory. When a member goes amber, the AI files WHY with a citation. When they come back, the timeline records it. The `weekly-retention-review` and `member-checkin-draft` skills read these pages — so check-ins reference real history, not generic templates. This is the difference between "draft a check-in for Anders" producing something hollow vs. something that knows Anders skipped two weeks after his injury and just hit a PB.
+
+**The reflection firewall still applies:** `_Brain/` is the AI's compiled knowledge (Substrate B), separate from the operator's own reflective notes. Documented in the vault `CLAUDE.md`.
+
+Mark complete:
+
+```bash
+touch ~/Documents/[AI_NAME]/.brain-layer-configured
+```
+
+---
+
 ## Stage 5 — Optional skills menu (varies)
 
 ### Optional skills
