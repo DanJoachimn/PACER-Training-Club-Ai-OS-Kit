@@ -28,7 +28,7 @@ Sunday 19:00 via launchd. See `weekly-retention-review.plist.template` in this s
 ### Step 1 — Read every active Member file
 
 ```bash
-ls "$HOME/Documents/[AI_NAME]/vault/Members/"*.md
+ls "$HOME/[AI_NAME]/vault/Members/"*.md
 ```
 
 For each file, parse the frontmatter:
@@ -98,7 +98,7 @@ Format (delivered via Telegram + saved to vault):
 ### Step 4 — Deliver
 
 1. Send to Telegram via `send-telegram-text.sh` (if Telegram is wired up)
-2. Also save to vault: `~/Documents/[AI_NAME]/vault/Memory/retention-reviews/YYYY-MM-DD.md`
+2. Also save to vault: `~/[AI_NAME]/vault/Memory/retention-reviews/YYYY-MM-DD.md`
 3. Append a 1-line entry to daily-memory: *"Sunday retention review: 2 red, 3 amber, 2 milestones this week."*
 
 ### Step 5 — Wait for [PARTNER_NAME]'s response

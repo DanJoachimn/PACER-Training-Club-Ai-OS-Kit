@@ -1,4 +1,4 @@
-# UPDATE.md — Live update playbook for the PACER: Partner AI Kit for Training Clubs
+# UPDATE.md — Live update playbook for the PACER: Training Club AI-OS Kit
 
 > Same shape as the Personal kit's UPDATE.md, but updates BOTH the Personal foundation AND the Training Club overlay. Read by the `/update` skill when an Training Club user runs `/update`.
 
@@ -12,7 +12,7 @@ User says any of:
 - "update my kit"
 - "check for kit updates"
 
-(All these triggers route through the existing `/update` skill — which detects whether the install is Personal-only or Training Club-flavored by checking for `~/Documents/[ai-name]/.training-club-overlay/` and switches playbooks accordingly.)
+(All these triggers route through the existing `/update` skill — which detects whether the install is Personal-only or Training Club-flavored by checking for `~/[ai-name]/.training-club-overlay/` and switches playbooks accordingly.)
 
 ---
 
@@ -22,8 +22,8 @@ User says any of:
 
 ```
 Checking both repos:
-- Personal kit (foundation) — fetching from https://raw.githubusercontent.com/DanJoachimn/Partner-Ai-Kit-Personal/main
-- Training Club overlay — fetching from https://raw.githubusercontent.com/DanJoachimn/Partner-Ai-Kit-Training-Club/main
+- Personal kit (foundation) — fetching from https://raw.githubusercontent.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit/main
+- Training Club overlay — fetching from https://raw.githubusercontent.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/main
 
 Comparing to what's installed...
 ```
@@ -31,15 +31,15 @@ Comparing to what's installed...
 ### Step 2 — Snapshot both checkouts
 
 ```bash
-cd "$HOME/Documents/[AI_NAME]/.kit"
+cd "$HOME/[AI_NAME]/.kit"
 PERSONAL_COMMIT=$(git rev-parse HEAD)
 
-cd "$HOME/Documents/[AI_NAME]/.training-club-overlay"
+cd "$HOME/[AI_NAME]/.training-club-overlay"
 OVERLAY_COMMIT=$(git rev-parse HEAD)
 
-echo "Personal kit commit: $PERSONAL_COMMIT" > "$HOME/Documents/[AI_NAME]/_recovery/pre-update-snapshot.txt"
-echo "Training Club overlay commit: $OVERLAY_COMMIT" >> "$HOME/Documents/[AI_NAME]/_recovery/pre-update-snapshot.txt"
-echo "Timestamp: $(date -Iseconds)" >> "$HOME/Documents/[AI_NAME]/_recovery/pre-update-snapshot.txt"
+echo "Personal kit commit: $PERSONAL_COMMIT" > "$HOME/[AI_NAME]/_recovery/pre-update-snapshot.txt"
+echo "Training Club overlay commit: $OVERLAY_COMMIT" >> "$HOME/[AI_NAME]/_recovery/pre-update-snapshot.txt"
+echo "Timestamp: $(date -Iseconds)" >> "$HOME/[AI_NAME]/_recovery/pre-update-snapshot.txt"
 ```
 
 ### Step 3 — Run Personal kit update first
@@ -47,7 +47,7 @@ echo "Timestamp: $(date -Iseconds)" >> "$HOME/Documents/[AI_NAME]/_recovery/pre-
 Read the Personal kit's `UPDATE.md`:
 
 ```bash
-cat "$HOME/Documents/[AI_NAME]/.kit/UPDATE.md"
+cat "$HOME/[AI_NAME]/.kit/UPDATE.md"
 ```
 
 Run that playbook. If it fails, abort — don't proceed to Training Club overlay until Personal is on solid ground.
@@ -59,7 +59,7 @@ Run that playbook. If it fails, abort — don't proceed to Training Club overlay
 After Personal kit update completes, fetch Training Club overlay diff:
 
 ```bash
-cd "$HOME/Documents/[AI_NAME]/.training-club-overlay"
+cd "$HOME/[AI_NAME]/.training-club-overlay"
 git fetch origin main
 NEW_OVERLAY_COMMIT=$(git rev-parse origin/main)
 
@@ -77,7 +77,7 @@ Same categorization rules as Personal UPDATE.md, applied to Training Club-overla
 
 | Change type | Action |
 |---|---|
-| `training-club-overlay/subagents/[subagent].md` modified | Update the coach's file in `~/Documents/[AI_NAME]/.claude/agents/` (with consent if tuned via learnings) |
+| `training-club-overlay/subagents/[subagent].md` modified | Update the coach's file in `~/[AI_NAME]/.claude/agents/` (with consent if tuned via learnings) |
 | `training-club-overlay/subagents/[new-subagent].md` added | Offer the new coach. Rare — the standard subagents are stable; new ones are major events |
 | `training-club-overlay/skills/[skill]/SKILL.md` modified | Update the user-level skill in `~/.claude/skills/` (with consent if tuned) |
 | `training-club-overlay/skills/[new-skill]/` added | Offer the new skill. This is the most common Training Club update — new operational skills shipping |
@@ -93,8 +93,8 @@ Same as Personal UPDATE.md — apply changes, preserve tunings, re-render plists
 ### Step 7 — Fast-forward both checkouts
 
 ```bash
-cd "$HOME/Documents/[AI_NAME]/.kit" && git pull origin main
-cd "$HOME/Documents/[AI_NAME]/.training-club-overlay" && git pull origin main
+cd "$HOME/[AI_NAME]/.kit" && git pull origin main
+cd "$HOME/[AI_NAME]/.training-club-overlay" && git pull origin main
 ```
 
 ### Step 8 — Combined summary
@@ -149,5 +149,5 @@ Tell user explicitly:
 | Placeholder | Source |
 |---|---|
 | `[AI_NAME]` | Read from `~/Documents/*/CLAUDE.md` frontmatter |
-| Personal repo URL | Already baked into `~/Documents/[ai-name]/.kit/.git/config` (`https://github.com/DanJoachimn/Partner-Ai-Kit-Personal.git`) |
-| Training Club repo URL | Already baked into `~/Documents/[ai-name]/.training-club-overlay/.git/config` (`https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club.git`) |
+| Personal repo URL | Already baked into `~/[ai-name]/.kit/.git/config` (`https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit.git`) |
+| Training Club repo URL | Already baked into `~/[ai-name]/.training-club-overlay/.git/config` (`https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit.git`) |

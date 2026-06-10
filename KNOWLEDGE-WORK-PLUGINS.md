@@ -54,7 +54,7 @@ The full marketplace includes plugins for product-management, engineering, desig
 When the gym owner runs `/update`, PACER's update flow:
 
 1. Pulls the latest version of the PACER kit from GitHub (the usual)
-2. Pulls the latest version of the underlying personal kit (`Partner-Ai-Kit-Personal`)
+2. Pulls the latest version of the underlying personal kit (`WATNEY-Personal-Ai-OS-Kit`)
 3. **Also runs** `claude plugin marketplace update knowledge-work-plugins`
 4. Reports any installed plugins that have new versions
 5. Surfaces any NEW plugins added to upstream since the last update

@@ -28,7 +28,7 @@ This skill closes the gap. [AI_NAME] reads the member's file, the club's voice g
 ### Step 1 — Read the member's file
 
 ```bash
-MEMBER_FILE="$HOME/Documents/[AI_NAME]/vault/Members/[member-name].md"
+MEMBER_FILE="$HOME/[AI_NAME]/vault/Members/[member-name].md"
 ```
 
 If file doesn't exist:
@@ -45,8 +45,8 @@ If file exists, parse:
 
 ### Step 2 — Read the brand voice context
 
-- `~/Documents/[AI_NAME]/vault/Brand/Voice guide.md` — how [CLUB_NAME] sounds
-- `~/Documents/[AI_NAME]/vault/Brand/Do-not-use list.md` — banned phrases
+- `~/[AI_NAME]/vault/Brand/Voice guide.md` — how [CLUB_NAME] sounds
+- `~/[AI_NAME]/vault/Brand/Do-not-use list.md` — banned phrases
 
 ### Step 3 — Draft the message
 

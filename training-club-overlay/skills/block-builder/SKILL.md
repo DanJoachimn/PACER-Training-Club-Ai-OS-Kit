@@ -132,7 +132,7 @@ For each session in each week:
 ### Step 6 — Save + confirm
 
 Save the full block to:
-`~/Documents/[AI_NAME]/vault/Programming/blocks/YYYY-MM-DD-to-[race-date].md`
+`~/[AI_NAME]/vault/Programming/blocks/YYYY-MM-DD-to-[race-date].md`
 
 Tell [PARTNER_NAME]:
 

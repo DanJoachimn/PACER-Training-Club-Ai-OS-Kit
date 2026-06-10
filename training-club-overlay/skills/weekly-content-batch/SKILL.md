@@ -27,10 +27,10 @@ Sunday 20:00 via launchd (runs after the retention review at 19:00).
 ### Step 1 — Read the context
 
 Pull in:
-- `~/Documents/[AI_NAME]/vault/Brand/Voice guide.md` — the club's voice rules
-- `~/Documents/[AI_NAME]/vault/Brand/Do-not-use list.md` — banned phrases
-- `~/Documents/[AI_NAME]/vault/Events/race-calendar.md` — upcoming races (especially in next 8 weeks)
-- `~/Documents/[AI_NAME]/vault/Memory/long-term.md` — recent member wins, club moments
+- `~/[AI_NAME]/vault/Brand/Voice guide.md` — the club's voice rules
+- `~/[AI_NAME]/vault/Brand/Do-not-use list.md` — banned phrases
+- `~/[AI_NAME]/vault/Events/race-calendar.md` — upcoming races (especially in next 8 weeks)
+- `~/[AI_NAME]/vault/Memory/long-term.md` — recent member wins, club moments
 - This week's daily-memory entries — anything content-worthy that happened
 
 ### Step 2 — Pick 7 angles for next week
@@ -100,7 +100,7 @@ Apply the Voice guide religiously. Re-read Brand/Voice guide.md after drafting �
 ### Step 5 — Save approved batch
 
 When [PARTNER_NAME] approves, write to:
-`~/Documents/[AI_NAME]/vault/Brand/content-calendar/YYYY-MM-DD.md`
+`~/[AI_NAME]/vault/Brand/content-calendar/YYYY-MM-DD.md`
 
 With frontmatter:
 ```yaml

@@ -22,7 +22,7 @@ OR: the AI offers it after the user has been using Part 1 for a few days and see
 ## Stage 0 — Greeting + check Part 1 is in place (~30 sec)
 
 ```bash
-test -f ~/Documents/[AI_NAME]/.training-club-part-1-complete \
+test -f ~/[AI_NAME]/.training-club-part-1-complete \
   || { echo "Training Club Part 1 not complete; redirect to INSTALL.md"; exit 1; }
 ```
 
@@ -109,7 +109,7 @@ claude plugin install [plugin-name]@knowledge-work-plugins         # per plugin
 ### If owner says skip
 
 ```bash
-touch ~/Documents/[AI_NAME]/.knowledge-work-plugins-deferred
+touch ~/[AI_NAME]/.knowledge-work-plugins-deferred
 ```
 
 > "Skipped. PACER's HTC wrappers will work with reduced fidelity — they'll write from scratch each time instead of delegating to a battle-tested plugin skill. You can install anytime by saying 'install the HTC plugins' or following `KNOWLEDGE-WORK-PLUGINS.md`."
@@ -121,8 +121,8 @@ touch ~/Documents/[AI_NAME]/.knowledge-work-plugins-deferred
 After install (or skip):
 
 ```bash
-touch ~/Documents/[AI_NAME]/.knowledge-work-plugins-stage-complete
-echo "$(date -Iseconds) — Stage 0.5 complete" >> ~/Documents/[AI_NAME]/logs/install.log
+touch ~/[AI_NAME]/.knowledge-work-plugins-stage-complete
+echo "$(date -Iseconds) — Stage 0.5 complete" >> ~/[AI_NAME]/logs/install.log
 ```
 
 ### Why this stage is here and not later
@@ -153,14 +153,14 @@ The questions are the same as Personal Part 2's voice interview, with one Traini
 - **B5.** Banned words / tropes — *"Words, phrases, or patterns that — if I ever wrote them in a draft for [CLUB_NAME] — would make you reject the whole draft."*
 
 Capture answers verbatim. Write to:
-- `~/Documents/[AI_NAME]/vault/Brand/Voice guide.md` (overwrite Part 1's 3-Q version)
-- `~/Documents/[AI_NAME]/vault/Brand/Reference brands.md`
-- `~/Documents/[AI_NAME]/vault/Brand/Do-not-use list.md`
+- `~/[AI_NAME]/vault/Brand/Voice guide.md` (overwrite Part 1's 3-Q version)
+- `~/[AI_NAME]/vault/Brand/Reference brands.md`
+- `~/[AI_NAME]/vault/Brand/Do-not-use list.md`
 
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.voice-express-complete
+touch ~/[AI_NAME]/.voice-express-complete
 ```
 
 ---
@@ -170,7 +170,7 @@ touch ~/Documents/[AI_NAME]/.voice-express-complete
 Read the Training Club kick-off additions for the deeper variants:
 
 ```bash
-cat "$HOME/Documents/[AI_NAME]/.training-club-overlay/training-club-overlay/kick-off-training-club-additions.md"
+cat "$HOME/[AI_NAME]/.training-club-overlay/training-club-overlay/kick-off-training-club-additions.md"
 ```
 
 That file contains the Training Club-flavored Section C+ — four buckets, ~2-3 min each:
@@ -185,8 +185,8 @@ Each bucket: ask the questions in the kick-off-additions file, capture answers, 
 Mark complete:
 
 ```bash
-rm -f ~/Documents/[AI_NAME]/.training-club-kick-off-cplus-pending
-touch ~/Documents/[AI_NAME]/.training-club-kick-off-cplus-complete
+rm -f ~/[AI_NAME]/.training-club-kick-off-cplus-pending
+touch ~/[AI_NAME]/.training-club-kick-off-cplus-complete
 ```
 
 ---
@@ -204,7 +204,7 @@ If yes — follow the same flow as Personal `INSTALL-PART-2.md` Stage 2 (open ht
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.elevenlabs-configured
+touch ~/[AI_NAME]/.elevenlabs-configured
 ```
 
 ---
@@ -225,7 +225,7 @@ Same flow as Personal `INSTALL-PART-2.md` Stage 3:
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.granola-configured
+touch ~/[AI_NAME]/.granola-configured
 ```
 
 ---
@@ -241,15 +241,15 @@ Combined with the AI's vault-awareness, *"summarize what I've clipped this week"
 If yes:
 
 1. Open Chrome (or Edge / Firefox / Safari) → install the **Obsidian Web Clipper** extension from the browser's store. Direct link: https://obsidian.md/clipper
-2. Click the extension icon → point at the vault at `~/Documents/[AI_NAME]/vault/`.
+2. Click the extension icon → point at the vault at `~/[AI_NAME]/vault/`.
 3. Recommend `vault/Clippings/` as the destination folder (Web Clipper creates it if missing). Matches the Hab schema convention for raw source material.
 4. Pick the default template — bundled "Default" handles most cases. YouTube template is useful for race recap videos.
-5. Test: open any article in the browser, click the Web Clipper icon, save. Confirm a new markdown file appears in `~/Documents/[AI_NAME]/vault/Clippings/`.
+5. Test: open any article in the browser, click the Web Clipper icon, save. Confirm a new markdown file appears in `~/[AI_NAME]/vault/Clippings/`.
 
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.obsidian-clipper-configured
+touch ~/[AI_NAME]/.obsidian-clipper-configured
 ```
 
 After install: the AI reads everything in `vault/Clippings/` as context. Operator clips race recaps + competitor content + retention research, AI absorbs it, queries spanning "what's in my head + what I've been reading + what my clients are doing" become trivial.
@@ -325,12 +325,12 @@ Search "retention" but the note says "members at risk" → keyword search finds 
 
 > "Want me to add semantic search? Right now I find notes by exact words. With this, I find them by MEANING — search 'retention' and I'll also pull up the notes where you wrote 'members at risk' or 'who might cancel', because I understand those are the same idea. It piggybacks on a free Obsidian plugin and stays 100% on your Mac. ~5 min."
 
-Follow the same setup as the Personal kit's Stage 3.8 Part A (Smart Connections plugin → confirm local → build embeddings → Python venv → install the `vault-semantic-search` skill → build `scripts/search.py` → gitignore `.smart-env/` → test). The skill template is at `~/Documents/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /skill-templates/vault-semantic-search/`.
+Follow the same setup as the Personal kit's Stage 3.8 Part A (Smart Connections plugin → confirm local → build embeddings → Python venv → install the `vault-semantic-search` skill → build `scripts/search.py` → gitignore `.smart-env/` → test). The skill template is at `~/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /skill-templates/vault-semantic-search/`.
 
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.semantic-search-configured
+touch ~/[AI_NAME]/.semantic-search-configured
 ```
 
 ### Part B — The Brain (the filing cabinet that builds itself)
@@ -342,8 +342,8 @@ The richest memory upgrade, and the one that matters most for Training Club ops.
 Install the `_Brain/` scaffold (same as Personal kit Stage 3.8 Part B):
 
 ```bash
-OVERLAY="$HOME/Documents/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /vault-scaffold/brain-layer"
-cp -R "$OVERLAY/_Brain" "$HOME/Documents/[AI_NAME]/vault/_Brain"
+OVERLAY="$HOME/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /vault-scaffold/brain-layer"
+cp -R "$OVERLAY/_Brain" "$HOME/[AI_NAME]/vault/_Brain"
 ```
 
 **Training Club-specific value:** the `_Brain/people/` drawer becomes the deep member + coach memory. When a member goes amber, the AI files WHY with a citation. When they come back, the timeline records it. The `weekly-retention-review` and `member-checkin-draft` skills read these pages — so check-ins reference real history, not generic templates. This is the difference between "draft a check-in for Anders" producing something hollow vs. something that knows Anders skipped two weeks after his injury and just hit a PB.
@@ -353,7 +353,7 @@ cp -R "$OVERLAY/_Brain" "$HOME/Documents/[AI_NAME]/vault/_Brain"
 Mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.brain-layer-configured
+touch ~/[AI_NAME]/.brain-layer-configured
 ```
 
 ---
@@ -391,7 +391,7 @@ Test query: "Pull the transcript of this race recap: https://www.youtube.com/wat
 The AI should return the full transcript text. If it scrapes successfully, mark complete:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.youtube-transcript-mcp-configured
+touch ~/[AI_NAME]/.youtube-transcript-mcp-configured
 ```
 
 ---
@@ -416,14 +416,14 @@ If operator wants to try → walk through Personal `guides/09-siri-apple-watch-i
 If operator skips → mark deferred:
 
 ```bash
-touch ~/Documents/[AI_NAME]/.siri-deferred-until-verified
+touch ~/[AI_NAME]/.siri-deferred-until-verified
 ```
 
 If operator successfully completes the setup (rare until first verified install lands):
 
 ```bash
-touch ~/Documents/[AI_NAME]/.siri-configured
-echo "$(date -Iseconds) — Siri configured (UNVERIFIED PATH, operator is first-mover)" >> ~/Documents/[AI_NAME]/logs/install.log
+touch ~/[AI_NAME]/.siri-configured
+echo "$(date -Iseconds) — Siri configured (UNVERIFIED PATH, operator is first-mover)" >> ~/[AI_NAME]/logs/install.log
 ```
 
 ### Kit author's commitment
@@ -442,10 +442,10 @@ Siri path scheduled for verification by kit author "soon" (commit date 2026-05-1
 ## Stage 7 — Part 2 close
 
 ```bash
-touch ~/Documents/[AI_NAME]/.part-2-complete
-touch ~/Documents/[AI_NAME]/.training-club-part-2-complete
-date -Iseconds > ~/Documents/[AI_NAME]/.part-2-date
-echo "$(date -Iseconds) — TRAINING CLUB PART 2 COMPLETE" >> ~/Documents/[AI_NAME]/logs/install.log
+touch ~/[AI_NAME]/.part-2-complete
+touch ~/[AI_NAME]/.training-club-part-2-complete
+date -Iseconds > ~/[AI_NAME]/.part-2-date
+echo "$(date -Iseconds) — TRAINING CLUB PART 2 COMPLETE" >> ~/[AI_NAME]/logs/install.log
 ```
 
 Close with:

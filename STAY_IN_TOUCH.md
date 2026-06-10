@@ -34,7 +34,7 @@ This isn't a passive list. It's the room.
 ## Other ways to find me
 
 - **the kit builder** — https://github.com/DanJoachimn — where the AI infrastructure for Training Club operators is built in the open
-- **The Personal version of this kit** (for non-Training Club folks) — https://github.com/DanJoachimn/Partner-Ai-Kit-Personal
+- **The Personal version of this kit** (for non-Training Club folks) — https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit
 - **GitHub** — https://github.com/DanJoachimn — star the repo if it's useful; it helps other operators find it
 
 ---

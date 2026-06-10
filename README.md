@@ -1,6 +1,6 @@
-# PACER: Partner AI Kit for Training Clubs
+# PACER: Training Club AI-OS Kit
 
-> PACER (Partner AI Kit for Training Clubs) — the Training Club-flavored sibling of WATNEY. An AI partner built for Training Club operators — knows your members, your programming, your race calendar, your voice. ~30 minutes from install to your first useful conversation.
+> PACER (Training Club AI-OS Kit) — the Training Club-flavored sibling of WATNEY. An AI partner built for Training Club operators — knows your members, your programming, your race calendar, your voice. ~30 minutes from install to your first useful conversation.
 
 ---
 
@@ -34,7 +34,7 @@ Three things you should know about safety:
 
 ## What this is
 
-WATNEY (the Personal AI Kit) + a Training Club overlay. You get everything in the [Personal kit](https://github.com/DanJoachimn/Partner-Ai-Kit-Personal) — voice, memory, scheduled jobs, second brain — plus:
+WATNEY (the Personal AI-OS Kit) + a Training Club overlay. You get everything in the [Personal kit](https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit) — voice, memory, scheduled jobs, second brain — plus:
 
 - **The 4 standard subagents** (same as the Personal kit): Content, Research, Developer, Assistant — used here for Training Club operations
 - **Day-1 skills tuned for Training Club operators:** weekly retention review, weekly content batch, race-anchored block builder, member check-in drafter
@@ -72,6 +72,25 @@ You never open a terminal. You talk to your AI like you'd talk to a chief of sta
 
 Three obvious ones plus two that aren't obvious — but the two non-obvious ones are **half the magic**. Don't skip them.
 
+## What it costs (honest numbers, upfront)
+
+The kit is **free, forever** — it's files you own. The stack it runs on isn't, so here's the full picture before you start:
+
+| | Cost | Required? | Why |
+|---|---|---|---|
+| **Claude subscription** | $20/mo (Pro) — $100+/mo (Max) for heavy use | **Required** | The intelligence. Pro covers the install + daily club ops; upgrade when you feel the ceiling. |
+| Telegram | Free | Required for voice channel | Your AI in your pocket, between classes |
+| Granola (meeting capture) | ~$18/mo, first 25 meetings free | Optional (Part 2) | Coach syncs + member calls, remembered forever |
+| ElevenLabs (premium voice) | Free tier, ~$5/mo+ | Optional (Part 2) | Nicer voice than Mac's built-in |
+| 1Password | ~$3/mo | Optional | Upgraded key security |
+| External drive (Time Machine) | ~$60 one-time | Strongly recommended | Backup that survives a dead Mac — your member data deserves it |
+
+**Realistic minimum: $20/mo.** Full stack: $40-50/mo. Less than one member's monthly fee, for an always-on ops manager that compounds every week — but you should see the number before you start, not discover it mid-install.
+
+*Disclosure: some optional-tool links in this kit may become affiliate links — same price for you, small commission funds kit development. The required stack earns us nothing.*
+
+---
+
 **The obvious three:**
 
 1. **A Mac** running macOS 14 or later
@@ -106,13 +125,13 @@ If you genuinely can't enable them (corporate-locked Mac, no Chrome), the instal
 ### The install prompt
 
 ```
-You're about to install PACER (Partner AI Kit for Training Clubs) for me.
+You're about to install PACER (Training Club AI-OS Kit) for me.
 I'm not a developer. I run a Training Club and want an AI partner
 built for my operation.
 
 Please:
 1. Fetch the live installer from
-   https://raw.githubusercontent.com/DanJoachimn/Partner-Ai-Kit-Training-Club/main/INSTALL.md
+   https://raw.githubusercontent.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/main/INSTALL.md
 2. Read it carefully — it has the full install playbook. The Training Club version
    layers on top of the Personal kit, so you'll install both.
 3. BEFORE installing ANYTHING, do a security audit of BOTH repos (Personal
@@ -232,7 +251,7 @@ Real talk about the roadmap. These are on the list but not in V1:
 
 Source-available. You can install, modify, and use this kit for your own needs (personal or your own Training Club). You can't repackage it for sale, host it as a service for others, or distribute a competing kit derived from it.
 
-Full terms in [LICENSE](./LICENSE). For commercial licensing inquiries: open an issue on [GitHub](https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club/issues) and I'll be in touch.
+Full terms in [LICENSE](./LICENSE). For commercial licensing inquiries: open an issue on [GitHub](https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/issues) and I'll be in touch.
 
 ---
 
@@ -256,7 +275,7 @@ No email required to install. No tracking. The campfire's there if you want it.
 
 ## Help, feedback, bug reports
 
-Open a [GitHub issue](https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club/issues).
+Open a [GitHub issue](https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/issues).
 
 Or tell your AI about a bug — it can often diagnose and propose a fix. If the fix is useful for everyone, it can open a PR back to this repo.
 
@@ -266,7 +285,7 @@ Or tell your AI about a bug — it can often diagnose and propose a fix. If the 
 
 I work with Training Clubs on retention, content, and AI-augmented operations. This kit is the install foundation I use for every client engagement — given away free because the Training Club space is too small for paywalled tooling and too big for everyone to reinvent the same wheels.
 
-If you want help setting yours up beyond what your AI can do, or you want a custom-built version with your specific integrations + content workflows, [open an issue on GitHub](https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club/issues) and we'll find a way to talk.
+If you want help setting yours up beyond what your AI can do, or you want a custom-built version with your specific integrations + content workflows, [open an issue on GitHub](https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/issues) and we'll find a way to talk.
 
 ---
 

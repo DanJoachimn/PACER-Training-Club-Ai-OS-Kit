@@ -1,4 +1,4 @@
-# INSTALL.md — Live install playbook for the PACER: Partner AI Kit for Training Clubs
+# INSTALL.md — Live install playbook for the PACER: Training Club AI-OS Kit
 
 > **This file is read by an AI agent (Claude Code) at install time.** A Training Club operator has just pasted a prompt asking you to install. They're a Training Club operator, not a developer. They run programming, retention, marketing, ops — alone or with a small team. They want this working, not configured.
 
@@ -25,9 +25,13 @@ The Part 1 / Part 2 split is **identical in intent** to the Personal kit's split
 
 ---
 
-## Stage 0a — Agent capability check (~2 min, BEFORE the greeting)
+## Stage 0a — Say hi first, then the agent capability check (~2 min)
 
-**Before anything else**, verify the two capabilities that turn this kit from a chatbot install into an agent install: **computer use** + **Claude Chrome extension**.
+**Open warm — two sentences, before ANY setup talk:**
+
+> "Hi! I'm about to become your club's AI partner — genuinely excited. The whole install is me doing the work while you answer a few questions about your club; you'll do nothing technical. First up: two quick switches that upgrade me from a chatbot that *tells* you things into an agent that *does* things for you. Two minutes. Then I'll walk you through everything else."
+
+THEN verify the two capabilities that turn this kit from a chatbot install into an agent install: **computer use** + **Claude Chrome extension**.
 
 These are not install conveniences. They are **half the magic.** The operator is about to spend ~50 minutes installing a "Partner AI." The first time the AI opens System Settings for them, fills out a BotFather form, or screenshots to confirm a toggle — that's the aha-moment compounding *throughout* the install, not just at the voice-note climax. Without these, the operator finishes Part 1 with a smart chatbot. With them, the operator finishes Part 1 *feeling* the partnership.
 
@@ -61,7 +65,7 @@ Then show whichever capabilities aren't yet enabled:
 
 **Computer use** (if OFF):
 
-> "**1. Computer use** — lets me open System Settings, screenshot what I see, click toggles, navigate native apps for you. Used at least 5 times in this install: iCloud check, Screen Recording permissions, voice picker, Telegram desktop check, and the final aha-moment when I confirm your phone received the voice note. After install, it's what lets me look at your screen and answer 'what's going on with this dashboard right now?' for real.
+> "**1. Computer use** — lets me open System Settings, screenshot what I see, click toggles, navigate native apps for you. Used at least 5 times in this install: backup check, Screen Recording permissions, voice picker, Telegram desktop check, and the final aha-moment when I confirm your phone received the voice note. After install, it's what lets me look at your screen and answer 'what's going on with this dashboard right now?' for real.
 >
 > Turn on: **Claude Code Desktop → Settings → Capabilities → Computer use** (may be labeled *'Control my computer'*). Grant Screen Recording + Accessibility when prompted. Tell me when it's on."
 
@@ -142,7 +146,7 @@ If a connector errors out → suggest they re-run the Connect flow once; if it e
 Log which were deferred so the wrap-up skill can nudge once after a few days:
 
 ```bash
-echo "connectors-deferred: $LIST_OF_SKIPPED" >> ~/Documents/[AI_NAME]/.first-run-log.txt
+echo "connectors-deferred: $LIST_OF_SKIPPED" >> ~/[AI_NAME]/.first-run-log.txt
 ```
 
 ### Hard rules for this stage
@@ -255,8 +259,8 @@ Wait for go-ahead.
 ```bash
 SANDBOX="$HOME/.partner-ai-kit-audit-$$"
 mkdir -p "$SANDBOX"
-git clone https://github.com/DanJoachimn/Partner-Ai-Kit-Personal.git "$SANDBOX/personal-kit"
-git clone https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club.git "$SANDBOX/training-club-overlay"
+git clone https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit.git "$SANDBOX/personal-kit"
+git clone https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit.git "$SANDBOX/training-club-overlay"
 ```
 
 ### Run the audit
@@ -265,7 +269,7 @@ Read every file in BOTH `$SANDBOX/personal-kit/` and `$SANDBOX/training-club-ove
 
 For the Training Club overlay specifically, also check that:
 
-- Training Club skill files (in `training-club-overlay/skills/`) only reference paths within the user's vault (`~/Documents/[AI_NAME]/vault/`) and skill folder (`~/.claude/skills/`)
+- Training Club skill files (in `training-club-overlay/skills/`) only reference paths within the user's vault (`~/[AI_NAME]/vault/`) and skill folder (`~/.claude/skills/`)
 - Plist templates schedule `claude -p` calls with static prompts — never fetch external URLs at runtime
 - Vault scaffold additions (`training-club-overlay/vault-scaffold-additions/`) are pure markdown templates — no executable content
 
@@ -317,15 +321,15 @@ The Training Club kit DOES NOT duplicate the Personal install. Instead, it trigg
 
 ```bash
 # Clone the Personal kit
-mkdir -p "$HOME/Documents/[AI_NAME]"
-cd "$HOME/Documents/[AI_NAME]"
-git clone https://github.com/DanJoachimn/Partner-Ai-Kit-Personal.git .kit
+mkdir -p "$HOME/[AI_NAME]"
+cd "$HOME/[AI_NAME]"
+git clone https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit.git .kit
 ```
 
 Then read and execute Personal Part 1:
 
 ```bash
-cat "$HOME/Documents/[AI_NAME]/.kit/INSTALL.md"
+cat "$HOME/[AI_NAME]/.kit/INSTALL.md"
 ```
 
 That's the Personal kit's Part 1 (Foundation) playbook. Run **all** of its stages — but with these two adjustments because we're inside the Training Club install:
@@ -344,8 +348,8 @@ When Personal Part 1 Stages 0-9 are done — including the Telegram bridge, voic
 ## Stage 2 — Clone the Training Club overlay (~30 sec)
 
 ```bash
-mkdir -p "$HOME/Documents/[AI_NAME]/.training-club-overlay"
-git clone https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club.git "$HOME/Documents/[AI_NAME]/.training-club-overlay"
+mkdir -p "$HOME/[AI_NAME]/.training-club-overlay"
+git clone https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit.git "$HOME/[AI_NAME]/.training-club-overlay"
 ```
 
 Confirm:
@@ -359,7 +363,7 @@ Confirm:
 ## Stage 3 — Install the Training Club Day-1 skills (~20 sec)
 
 ```bash
-OVERLAY_SKILLS_SRC="$HOME/Documents/[AI_NAME]/.training-club-overlay/training-club-overlay/skills"
+OVERLAY_SKILLS_SRC="$HOME/[AI_NAME]/.training-club-overlay/training-club-overlay/skills"
 SKILLS_DST="$HOME/.claude/skills"
 
 for skill in weekly-retention-review weekly-content-batch block-builder member-checkin-draft; do
@@ -412,8 +416,8 @@ Confirm:
 ## Stage 5 — Add Training Club-specific vault folders (~10 sec)
 
 ```bash
-ADDITIONS_SRC="$HOME/Documents/[AI_NAME]/.training-club-overlay/training-club-overlay/vault-scaffold-additions"
-VAULT="$HOME/Documents/[AI_NAME]/vault"
+ADDITIONS_SRC="$HOME/[AI_NAME]/.training-club-overlay/training-club-overlay/vault-scaffold-additions"
+VAULT="$HOME/[AI_NAME]/vault"
 
 for folder in Members Coaches Programming Events; do
   cp -R "$ADDITIONS_SRC/$folder" "$VAULT/$folder"
@@ -424,7 +428,7 @@ Confirm with diagram:
 
 ```mermaid
 graph TD
-    V[~/Documents/[AI_NAME]/vault/] --> M[Members/<br/>one file per member]
+    V[~/[AI_NAME]/vault/] --> M[Members/<br/>one file per member]
     V --> C[Coaches/<br/>your team]
     V --> P[Programming/<br/>blocks + scaling library]
     V --> E[Events/<br/>races + comps]
@@ -440,8 +444,8 @@ graph TD
 The Training Club overlay has Training Club-aware starter templates for the brand voice doc, ICP, and a starter "About this club" file.
 
 ```bash
-TEMPLATES_SRC="$HOME/Documents/[AI_NAME]/.training-club-overlay/training-club-overlay/context-templates"
-CONTEXT_DST="$HOME/Documents/[AI_NAME]/vault/_context"
+TEMPLATES_SRC="$HOME/[AI_NAME]/.training-club-overlay/training-club-overlay/context-templates"
+CONTEXT_DST="$HOME/[AI_NAME]/vault/_context"
 
 mkdir -p "$CONTEXT_DST"
 
@@ -471,8 +475,8 @@ These three questions REPLACE the equivalent generic 3-Q in Personal Stage 5 (th
 > "**What's your club called, and how should I sound when I talk about it?** Club name first (so I stop saying 'your club' generically). Then three words or one sentence on tone — examples: *'warm-direct, no fluff'* / *'sharp coach, push back on me'* / *'friendly, never corporate.'*"
 
 Save:
-- Club name → `~/Documents/[AI_NAME]/vault/_context/club-about.md` (top of file, replaces the placeholder `[CLUB_NAME]`)
-- Tone → `~/Documents/[AI_NAME]/vault/Brand/Voice guide.md`
+- Club name → `~/[AI_NAME]/vault/_context/club-about.md` (top of file, replaces the placeholder `[CLUB_NAME]`)
+- Tone → `~/[AI_NAME]/vault/Brand/Voice guide.md`
 
 Also: run a placeholder substitution across the 4 Training Club skill files installed in Stage 3 — replace `[CLUB_NAME_PLACEHOLDER]` with the real club name:
 
@@ -486,20 +490,20 @@ find ~/.claude/skills/{weekly-retention-review,weekly-content-batch,block-builde
 
 > "**One active block or training focus right now** — two sentences. Could be a race-anchored block (*'8-week block ending at HYROX Copenhagen Oct 14'*), a general phase (*'strength block, no race target yet'*), or whatever you're running. Just enough that the voice note I send you in a few minutes can mention it."
 
-Save to `~/Documents/[AI_NAME]/vault/Projects/Current block.md` with frontmatter.
+Save to `~/[AI_NAME]/vault/Projects/Current block.md` with frontmatter.
 
 ### Question 3 — Working style preference
 
 > "**When I'm working with you, do you want me to push back when I disagree, or just deliver what you asked for?** No wrong answer — operators split about 50/50 on this."
 
-Save to `~/Documents/[AI_NAME]/vault/Working style.md` (one-line note).
+Save to `~/[AI_NAME]/vault/Working style.md` (one-line note).
 
 ### Set the deferred-deep-kick-off marker
 
 ```bash
 # Part 2 will pick up the deeper Training Club kick-off (Section C+ — programming
 # defaults, race calendar, member archetypes, full 5-Q voice).
-touch "$HOME/Documents/[AI_NAME]/.training-club-kick-off-cplus-pending"
+touch "$HOME/[AI_NAME]/.training-club-kick-off-cplus-pending"
 ```
 
 ---
@@ -510,16 +514,16 @@ Now wire up the same Part 1 completion flags Personal uses, plus a Training Club
 
 ```bash
 # Personal Part 1 completion markers (mirror Personal INSTALL.md Stage 9)
-touch ~/Documents/[AI_NAME]/.part-1-complete
-date -Iseconds > ~/Documents/[AI_NAME]/.part-1-date
-touch ~/Documents/[AI_NAME]/.voice-foundation-3q-complete
-touch ~/Documents/[AI_NAME]/.first-run-complete
+touch ~/[AI_NAME]/.part-1-complete
+date -Iseconds > ~/[AI_NAME]/.part-1-date
+touch ~/[AI_NAME]/.voice-foundation-3q-complete
+touch ~/[AI_NAME]/.first-run-complete
 
 # Training Club-specific marker — Part 2 reads this to know it should layer on
 # Training Club additions (Section C+ deep fill) when the user invokes Part 2.
-touch ~/Documents/[AI_NAME]/.training-club-part-1-complete
+touch ~/[AI_NAME]/.training-club-part-1-complete
 
-cat > ~/Documents/[AI_NAME]/.first-run-log.txt <<EOF
+cat > ~/[AI_NAME]/.first-run-log.txt <<EOF
 First-run completed via Training Club Part 1 install: $(date -Iseconds)
 Voice tier: 3-Q foundation (Training Club-flavored)
 Training Club skills installed: weekly-retention-review, weekly-content-batch, block-builder, member-checkin-draft
@@ -529,7 +533,7 @@ Pending: Part 2 (5-Q voice + Training Club Section C+ deep fill + premium voice 
 User invokes Part 2 when ready: "run Part 2"
 EOF
 
-echo "$(date -Iseconds) — TRAINING CLUB PART 1 COMPLETE" >> ~/Documents/[AI_NAME]/logs/install.log
+echo "$(date -Iseconds) — TRAINING CLUB PART 1 COMPLETE" >> ~/[AI_NAME]/logs/install.log
 ```
 
 Close with:
@@ -552,9 +556,9 @@ Close with:
 
 | Placeholder | Source |
 |---|---|
-| `https://github.com/DanJoachimn/Partner-Ai-Kit-Personal.git` | `https://github.com/DanJoachimn/partner-ai-kit-personal.git` |
-| `https://github.com/DanJoachimn/Partner-Ai-Kit-Training-Club.git` | `https://github.com/DanJoachimn/partner-ai-kit-training-clubs.git` |
-| `https://raw.githubusercontent.com/DanJoachimn/Partner-Ai-Kit-Training-Club/main` | `https://raw.githubusercontent.com/DanJoachimn/partner-ai-kit-training-clubs/main` |
+| `https://github.com/DanJoachimn/WATNEY-Personal-Ai-OS-Kit.git` | `https://github.com/DanJoachimn/partner-ai-kit-personal.git` |
+| `https://github.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit.git` | `https://github.com/DanJoachimn/partner-ai-kit-training-clubs.git` |
+| `https://raw.githubusercontent.com/DanJoachimn/PACER-Training-Club-Ai-OS-Kit/main` | `https://raw.githubusercontent.com/DanJoachimn/partner-ai-kit-training-clubs/main` |
 | `[AI_NAME]` | Set during Personal install Stage 1 |
 | `[PARTNER_NAME]` | Set during Personal install Stage 5 |
 | `[CLUB_NAME]` | Set during Training Club kick-off Section A — leave as placeholder until then |
