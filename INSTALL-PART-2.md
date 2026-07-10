@@ -325,7 +325,7 @@ Search "retention" but the note says "members at risk" → keyword search finds 
 
 > "Want me to add semantic search? Right now I find notes by exact words. With this, I find them by MEANING — search 'retention' and I'll also pull up the notes where you wrote 'members at risk' or 'who might cancel', because I understand those are the same idea. It piggybacks on a free Obsidian plugin and stays 100% on your Mac. ~5 min."
 
-Follow the same setup as the Personal kit's Stage 3.8 Part A (Smart Connections plugin → confirm local → build embeddings → Python venv → install the `vault-semantic-search` skill → build `scripts/search.py` → gitignore `.smart-env/` → test). The skill template is at `~/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /skill-templates/vault-semantic-search/`.
+Follow the same setup as the Personal kit's Stage 3.8 Part A (Smart Connections plugin → confirm local → build embeddings → Python venv → install the `vault-semantic-search` skill → build `scripts/search.py` → gitignore `.smart-env/` → test). The skill template is at `~/[AI_NAME]/.kit/setup-guide/skill-templates/vault-semantic-search/`.
 
 Mark complete:
 
@@ -342,7 +342,7 @@ The richest memory upgrade, and the one that matters most for Training Club ops.
 Install the `_Brain/` scaffold (same as Personal kit Stage 3.8 Part B):
 
 ```bash
-OVERLAY="$HOME/[AI_NAME]/.kit/SETUP GUIDE (Input Ai) /vault-scaffold/brain-layer"
+OVERLAY="$HOME/[AI_NAME]/.kit/setup-guide/vault-scaffold/brain-layer"
 cp -R "$OVERLAY/_Brain" "$HOME/[AI_NAME]/vault/_Brain"
 ```
 
