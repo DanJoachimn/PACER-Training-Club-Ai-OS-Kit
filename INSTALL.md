@@ -31,6 +31,18 @@ The Part 1 / Part 2 split is **identical in intent** to the Personal kit's split
 
 > "Hi! I'm about to become your club's AI partner — genuinely excited. The whole install is me doing the work while you answer a few questions about your club; you'll do nothing technical. First up: two quick switches that upgrade me from a chatbot that *tells* you things into an agent that *does* things for you. Two minutes. Then I'll walk you through everything else."
 
+### Then hand them the escape hatch — before anything technical starts
+
+[PARTNER_NAME] runs a Training Club. They're an expert in coaching, programming and their members — and they are **not** a developer. Give them the ripcord **now**, before the first technical word:
+
+> "One thing before we start, and it's for you rather than me. If I ever explain something and it doesn't land — type **`/waitwhat`** and hit enter. I'll stop and explain it a completely different way, in plain English, no jargon. Use it as many times as you like, today or in a year.
+>
+> And to be clear: if something doesn't make sense, that's my explanation being bad, not you missing something. `/waitwhat` is me fixing my miss."
+
+**Say that last line.** The reason a non-developer stops asking questions is embarrassment — naming it up front is what keeps them asking for the next hour.
+
+`/waitwhat` installs with the Personal kit's setup.sh. On a Training Club install it also reads `~/[AI_NAME]/.training-club-overlay/training-club-overlay/waitwhat-training-club-additions.md`, which swaps software words for club words (members not users, Training Club not gym, block not mesocycle) and anchors every re-pitch to their actual club.
+
 THEN verify the two capabilities that turn this kit from a chatbot install into an agent install: **computer use** + **Claude Chrome extension**.
 
 These are not install conveniences. They are **half the magic.** The operator is about to spend ~50 minutes installing a "Partner AI." The first time the AI opens System Settings for them, fills out a BotFather form, or screenshots to confirm a toggle — that's the aha-moment compounding *throughout* the install, not just at the voice-note climax. Without these, the operator finishes Part 1 with a smart chatbot. With them, the operator finishes Part 1 *feeling* the partnership.

@@ -1,8 +1,9 @@
 # Training Club `waitwhat` Additions
 
-> Layered on top of the Personal kit's `waitwhat` SKILL.md. The Personal skill does
+> Layered on top of the Personal kit's `/waitwhat` slash command
+> (`~/.claude/commands/waitwhat.md`, installed by Personal's setup.sh). That command does
 > all the real work — this file only pins down the vocabulary and the failure modes
-> that are specific to a Training Club operator. AI reads this file when `/waitwhat`
+> that are specific to a Training Club operator. [AI_NAME] reads this file when `/waitwhat`
 > fires on a Training Club install.
 
 ---
@@ -11,13 +12,13 @@
 
 When `/waitwhat` fires on a Training Club install, the AI:
 
-1. Reads the Personal kit's `waitwhat` SKILL.md as baseline — the re-pitch method,
+1. Reads the Personal kit's `/waitwhat` command as baseline — the re-pitch method,
    the "re-explain don't re-shorten" rule, the double-fire escalation
 2. Applies the vocabulary and failure modes below
 3. Delivers the re-pitch
 
-Nothing here replaces the Personal skill. If this file is missing, the Personal
-skill still works correctly on its own.
+Nothing here replaces the Personal command. If this file is missing, `/waitwhat`
+still works correctly on its own.
 
 ---
 
@@ -27,7 +28,7 @@ skill still works correctly on its own.
 retention, and their members — and they are **not** a developer. The Personal kit
 assumes some tolerance for technical language. This install should assume none.
 
-Two rules from the Personal skill matter more here than anywhere else:
+Two rules from the Personal command matter more here than anywhere else:
 
 - **Define or drop** — apply this ruthlessly. If a word came from software and not
   from the gym floor, it needs a plain-English swap or a same-sentence definition.
@@ -84,7 +85,7 @@ operator's side of the desk, not the machine's.
 
 ## If it fires twice on the same thing
 
-Follow the Personal skill's escalation, and add one Training Club-specific move:
+Follow the Personal command's escalation, and add one Training Club-specific move:
 **offer to show it instead of explain it.** Run the thing once on one real member
 or one real block, and narrate what happened. For an operator, one worked example
 beats any third explanation.
